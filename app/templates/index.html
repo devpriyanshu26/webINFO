@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinfo - Web Reconnaissance Platform</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="nav-logo">Webinfo</span>
+            <span class="nav-badge">v3.0</span>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-link active">Scanner</a>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <div class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                <span id="themeIcon">&#9790;</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="hero">
+            <h1>Web Reconnaissance <span class="gradient-text">Platform</span></h1>
+            <p>Comprehensive website intelligence gathering &amp; security assessment suite</p>
+        </header>
+
+        <div class="scan-section">
+            <div class="search-box">
+                <input type="text" id="urlInput" placeholder="Enter target URL (e.g. https://example.com)" autofocus />
+                <button id="scanBtn" onclick="startScan()">
+                    <span class="btn-icon">&#9654;</span> Scan Target
+                </button>
+            </div>
+            <div class="scan-options">
+                <label class="opt"><input type="checkbox" id="optPorts" checked> Port Scan</label>
+                <label class="opt"><input type="checkbox" id="optSubs" checked> Subdomains</label>
+                <label class="opt"><input type="checkbox" id="optPaths" checked> Sensitive Paths</label>
+                <label class="opt"><input type="checkbox" id="optSSL" checked> SSL Deep</label>
+                <label class="opt"><input type="checkbox" id="optEmail" checked> Email Security</label>
+            </div>
+        </div>
+
+        <div id="loading" class="scan-progress hidden">
+            <div class="progress-header">
+                <div class="spinner"></div>
+                <div>
+                    <p id="scanStatus">Initializing scan...</p>
+                    <p id="scanTimer" class="timer">0s</p>
+                </div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="scan-stats" id="scanStats">
+                <span>DNS <span id="sDns" class="stat-dot">&#9679;</span></span>
+                <span>SSL <span id="sSsl" class="stat-dot">&#9679;</span></span>
+                <span>HTTP <span id="sHttp" class="stat-dot">&#9679;</span></span>
+                <span>Ports <span id="sPorts" class="stat-dot">&#9679;</span></span>
+                <span>Tech <span id="sTech" class="stat-dot">&#9679;</span></span>
+                <span>Subs <span id="sSubs" class="stat-dot">&#9679;</span></span>
+                <span>Vulns <span id="sVulns" class="stat-dot">&#9679;</span></span>
+            </div>
+        </div>
+
+        <div id="results" class="hidden"></div>
+    </main>
+
+    <footer class="footer">
+        <p>MADE BY PRIYANSHU PRAJAPAT</p>
+    </footer>
+</div>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
